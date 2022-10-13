@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CircleApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle myCircle = new Circle("Red");
+            myCircle.SetRadius(12);
+            Console.WriteLine($"Circle: {myCircle.GetColor()}");
+            Console.WriteLine($"Radius: {myCircle.GetRadius()}");
+            Console.WriteLine($"Area: {Math.Round(myCircle.GetArea(), 2)}");
+            Console.WriteLine($"Circumference: {Math.Round(myCircle.GetPerimeter(), 2)}");
+            Console.ReadLine();
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CircleApp
+{
+    internal class Circle
+    {
+        private int radius;
+        private string colorName;
+
+        public Circle(string colorName)
+        {
+            this.colorName = colorName;
+        }
+        public void SetRadius(int r)
+        {
+            this.radius = r;
+        }
+        public int GetRadius()
+        {
+            return this.radius;
+        }
+        public string GetColor()
+        {
+            return this.colorName;
+        }
+        public double GetArea()
+        {
+            return Math.PI * Math.Pow(this.radius, 2);
+        }
+        public double GetPerimeter()
+        {
+            return 2 * Math.PI * radius;
+        }
+    }
+}
